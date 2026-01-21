@@ -17,75 +17,62 @@ interface Props {
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+const preloadImages = (urls: string[]) => {
+  return Promise.all(
+    urls.map(
+      (src) =>
+        new Promise<void>((resolve) => {
+          const img = new Image();
+          img.onload = () => resolve();
+          img.onerror = () => resolve();
+          img.src = src;
+        })
+    )
+  );
+};
+
 const ProjectDetails = ({ project }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const [parallaxReady, setParallaxReady] = useState(false);
 
-  // ✅ Always start at top (hard reset, stable even with transitions + refresh)
+  // ✅ Always start at top + stable ScrollTrigger setup
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Always set scroll restoration to manual for this page
+    // Kill any old triggers from previous navigation
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+    ScrollTrigger.clearScrollMemory?.();
+
+    // Force top BEFORE paint
+    window.scrollTo(0, 0);
+
     const prevScrollRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = 'manual';
 
-    // Helper to force scroll to top
-    const scrollTopHard = () => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    };
+    let cancelled = false;
 
-    // Wait for all images in #images to load (including cached)
-    const images = Array.from(document.querySelectorAll('#images .parallax-img')) as HTMLDivElement[];
-    let loaded = 0;
-    let ready = false;
-    const onReady = () => {
-      if (ready) return;
-      ready = true;
-      ScrollTrigger.getAll().forEach((t) => t.kill());
-      ScrollTrigger.clearScrollMemory?.();
-      scrollTopHard();
+    (async () => {
+      // ✅ Preload real background image URLs
+      await preloadImages(project.images);
+
+      if (cancelled) return;
+
+      // One more hard top + refresh after images are ready
+      window.scrollTo(0, 0);
       requestAnimationFrame(() => {
-        scrollTopHard();
-        requestAnimationFrame(() => {
-          scrollTopHard();
-          ScrollTrigger.refresh(true);
-          setParallaxReady(true);
-        });
+        window.scrollTo(0, 0);
+        ScrollTrigger.refresh(true);
+        setParallaxReady(true);
       });
-    };
-    if (images.length === 0) {
-      onReady();
-    } else {
-      images.forEach((img) => {
-        if ((img as any).complete || img.getAttribute('data-loaded') === 'true') {
-          loaded++;
-          if (loaded === images.length) onReady();
-        } else {
-          img.addEventListener('load', () => {
-            loaded++;
-            if (loaded === images.length) onReady();
-          }, { once: true });
-          img.addEventListener('error', () => {
-            loaded++;
-            if (loaded === images.length) onReady();
-          }, { once: true });
-        }
-      });
-    }
-
-    window.addEventListener('load', scrollTopHard, { once: true });
-    const handleVisibility = () => setTimeout(scrollTopHard, 50);
-    document.addEventListener('visibilitychange', handleVisibility);
-    setTimeout(scrollTopHard, 200);
+    })();
 
     return () => {
-      window.removeEventListener('load', scrollTopHard);
-      document.removeEventListener('visibilitychange', handleVisibility);
+      cancelled = true;
       window.history.scrollRestoration = prevScrollRestoration;
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, [pathname]);
+  }, [pathname, project.images]);
 
   // Fade in content
   useGSAP(
@@ -95,8 +82,8 @@ const ProjectDetails = ({ project }: Props) => {
       gsap.set('.fade-in-later', { autoAlpha: 0, y: 30 });
 
       gsap
-        .timeline({ delay: 0.5 })
-        .to('.fade-in-later', { autoAlpha: 1, y: 0, stagger: 0.1 });
+        .timeline({ delay: 0.25 })
+        .to('.fade-in-later', { autoAlpha: 1, y: 0, stagger: 0.08 });
     },
     { scope: containerRef }
   );
@@ -125,13 +112,16 @@ const ProjectDetails = ({ project }: Props) => {
     { scope: containerRef }
   );
 
-  // Parallax GSAP setup: only run when parallaxReady is true
+  // ✅ Parallax only after images are truly ready
   useLayoutEffect(() => {
     if (!parallaxReady) return;
+
     const wraps = gsap.utils.toArray<HTMLElement>('#images > div');
+
     wraps.forEach((wrap, i) => {
       const img = wrap.querySelector<HTMLElement>('.parallax-img');
       if (!img) return;
+
       gsap.fromTo(
         img,
         { yPercent: i ? -8 : -4 },
@@ -148,18 +138,17 @@ const ProjectDetails = ({ project }: Props) => {
         }
       );
     });
-    // Final guarantee: force scroll to top after all GSAP/parallax is initialized
-    setTimeout(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    }, 40);
-  }, [parallaxReady, pathname]);
+
+    ScrollTrigger.refresh(true);
+  }, [parallaxReady]);
 
   return (
     <section className="pt-5 pb-14">
       <div className="container" ref={containerRef}>
+        {/* ✅ FIX: Use back navigation (restores previous scroll, no fast scroll animation) */}
         <TransitionLink
-          href="/#selected-projects"
-          scrollToId="selected-projects"
+          href="#"
+          back
           className="mb-16 inline-flex gap-2 items-center group h-12"
         >
           <ArrowLeft className="group-hover:-translate-x-1 group-hover:text-primary transition-all duration-300" />

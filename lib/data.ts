@@ -1,5 +1,5 @@
 import { IProject } from '@/types';
-import ProjectVideoCarousel from '@/components/ProjectVideoCarousel';
+// import ProjectVideoCarousel from '@/components/ProjectVideoCarousel';
 
 
 export const GENERAL_INFO = {

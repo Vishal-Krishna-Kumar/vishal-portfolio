@@ -151,7 +151,7 @@ const ProjectDetails = ({ project }: Props) => {
     // Final guarantee: force scroll to top after all GSAP/parallax is initialized
     setTimeout(() => {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
-    }, 50);
+    }, 40);
   }, [parallaxReady, pathname]);
 
   return (

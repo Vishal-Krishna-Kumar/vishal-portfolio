@@ -23,7 +23,7 @@ const ProjectDetails = ({ project }: Props) => {
 
 useEffect(() => {
   window.scrollTo(0, 0);
-}, []); 
+}, [pathname]); 
 // pathname
 
     useGSAP(

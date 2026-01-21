@@ -1,6 +1,6 @@
 'use client';
 
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import parse from 'html-react-parser';
 import ArrowAnimation from '@/components/ArrowAnimation';
 import TransitionLink from '@/components/TransitionLink';
@@ -20,47 +20,66 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 const ProjectDetails = ({ project }: Props) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const [parallaxReady, setParallaxReady] = useState(false);
 
   // ✅ Always start at top (hard reset, stable even with transitions + refresh)
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Disable browser scroll restoration for this page
+    // Always set scroll restoration to manual for this page
     const prevScrollRestoration = window.history.scrollRestoration;
     window.history.scrollRestoration = 'manual';
 
-    // Kill old triggers + clear GSAP's remembered scroll positions
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-    ScrollTrigger.clearScrollMemory?.();
-
+    // Helper to force scroll to top
     const scrollTopHard = () => {
       window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
     };
 
-    // Do it multiple times across frames (covers animated route transitions)
-    scrollTopHard();
-    let raf1 = 0;
-    let raf2 = 0;
-    raf1 = requestAnimationFrame(() => {
+    // Wait for all images in #images to load (including cached)
+    const images = Array.from(document.querySelectorAll('#images .parallax-img')) as HTMLDivElement[];
+    let loaded = 0;
+    let ready = false;
+    const onReady = () => {
+      if (ready) return;
+      ready = true;
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+      ScrollTrigger.clearScrollMemory?.();
       scrollTopHard();
-      raf2 = requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
         scrollTopHard();
-        // After everything settles, refresh ScrollTrigger calculations
-        ScrollTrigger.refresh(true);
+        requestAnimationFrame(() => {
+          scrollTopHard();
+          ScrollTrigger.refresh(true);
+          setParallaxReady(true);
+        });
       });
-    });
+    };
+    if (images.length === 0) {
+      onReady();
+    } else {
+      images.forEach((img) => {
+        if ((img as any).complete || img.getAttribute('data-loaded') === 'true') {
+          loaded++;
+          if (loaded === images.length) onReady();
+        } else {
+          img.addEventListener('load', () => {
+            loaded++;
+            if (loaded === images.length) onReady();
+          }, { once: true });
+          img.addEventListener('error', () => {
+            loaded++;
+            if (loaded === images.length) onReady();
+          }, { once: true });
+        }
+      });
+    }
 
-    // Also force top after full load (images/fonts can shift layout)
     window.addEventListener('load', scrollTopHard, { once: true });
-
-    // Extra: force scroll to top after hydration/visibilitychange (for browser quirks)
     const handleVisibility = () => setTimeout(scrollTopHard, 50);
     document.addEventListener('visibilitychange', handleVisibility);
-    setTimeout(scrollTopHard, 200); // Final fallback after all transitions
+    setTimeout(scrollTopHard, 200);
 
     return () => {
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
       window.removeEventListener('load', scrollTopHard);
       document.removeEventListener('visibilitychange', handleVisibility);
       window.history.scrollRestoration = prevScrollRestoration;
@@ -106,49 +125,30 @@ const ProjectDetails = ({ project }: Props) => {
     { scope: containerRef }
   );
 
-  // ✅ Smooth parallax using transform (GPU) instead of backgroundPosition (repaints)
-  useGSAP(
-    () => {
-      // Wait for all images to load before initializing parallax
-      const wraps = gsap.utils.toArray<HTMLElement>('#images > div');
-      const images = Array.from(document.querySelectorAll('#images .parallax-img')) as HTMLDivElement[];
-      let loaded = 0;
-      const tryInit = () => {
-        if (++loaded === images.length) {
-          // All images loaded, now set up parallax
-          wraps.forEach((wrap, i) => {
-            const img = wrap.querySelector<HTMLElement>('.parallax-img');
-            if (!img) return;
-            gsap.fromTo(
-              img,
-              { yPercent: i ? -8 : -4 },
-              {
-                yPercent: 8,
-                ease: 'none',
-                force3D: true,
-                scrollTrigger: {
-                  trigger: wrap,
-                  start: i ? 'top bottom' : 'top 70%',
-                  end: 'bottom top',
-                  scrub: true,
-                },
-              }
-            );
-          });
+  // Parallax GSAP setup: only run when parallaxReady is true
+  useLayoutEffect(() => {
+    if (!parallaxReady) return;
+    const wraps = gsap.utils.toArray<HTMLElement>('#images > div');
+    wraps.forEach((wrap, i) => {
+      const img = wrap.querySelector<HTMLElement>('.parallax-img');
+      if (!img) return;
+      gsap.fromTo(
+        img,
+        { yPercent: i ? -8 : -4 },
+        {
+          yPercent: 8,
+          ease: 'none',
+          force3D: true,
+          scrollTrigger: {
+            trigger: wrap,
+            start: i ? 'top bottom' : 'top 70%',
+            end: 'bottom top',
+            scrub: true,
+          },
         }
-      };
-      if (images.length === 0) return;
-      images.forEach((img) => {
-        if ((img as any).complete || img.getAttribute('data-loaded') === 'true') {
-          tryInit();
-        } else {
-          img.addEventListener('load', tryInit, { once: true });
-          img.addEventListener('error', tryInit, { once: true });
-        }
-      });
-    },
-    { scope: containerRef }
-  );
+      );
+    });
+  }, [parallaxReady, pathname]);
 
   return (
     <section className="pt-5 pb-14">

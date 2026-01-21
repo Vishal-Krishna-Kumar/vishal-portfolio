@@ -25,10 +25,9 @@ const ProjectDetails = ({ project }: Props) => {
   useLayoutEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Disable browser automatic scroll restoration
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
+    // Disable browser scroll restoration for this page
+    const prevScrollRestoration = window.history.scrollRestoration;
+    window.history.scrollRestoration = 'manual';
 
     // Kill old triggers + clear GSAP's remembered scroll positions
     ScrollTrigger.getAll().forEach((t) => t.kill());
@@ -40,22 +39,31 @@ const ProjectDetails = ({ project }: Props) => {
 
     // Do it multiple times across frames (covers animated route transitions)
     scrollTopHard();
-    const raf1 = requestAnimationFrame(() => {
+    let raf1 = 0;
+    let raf2 = 0;
+    raf1 = requestAnimationFrame(() => {
       scrollTopHard();
-      const raf2 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => {
         scrollTopHard();
         // After everything settles, refresh ScrollTrigger calculations
         ScrollTrigger.refresh(true);
       });
-      return () => cancelAnimationFrame(raf2);
     });
 
     // Also force top after full load (images/fonts can shift layout)
     window.addEventListener('load', scrollTopHard, { once: true });
 
+    // Extra: force scroll to top after hydration/visibilitychange (for browser quirks)
+    const handleVisibility = () => setTimeout(scrollTopHard, 50);
+    document.addEventListener('visibilitychange', handleVisibility);
+    setTimeout(scrollTopHard, 200); // Final fallback after all transitions
+
     return () => {
       cancelAnimationFrame(raf1);
+      cancelAnimationFrame(raf2);
       window.removeEventListener('load', scrollTopHard);
+      document.removeEventListener('visibilitychange', handleVisibility);
+      window.history.scrollRestoration = prevScrollRestoration;
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, [pathname]);
@@ -101,27 +109,42 @@ const ProjectDetails = ({ project }: Props) => {
   // ✅ Smooth parallax using transform (GPU) instead of backgroundPosition (repaints)
   useGSAP(
     () => {
+      // Wait for all images to load before initializing parallax
       const wraps = gsap.utils.toArray<HTMLElement>('#images > div');
-
-      wraps.forEach((wrap, i) => {
-        const img = wrap.querySelector<HTMLElement>('.parallax-img');
-        if (!img) return;
-
-        gsap.fromTo(
-          img,
-          { yPercent: i ? -8 : -4 },
-          {
-            yPercent: 8,
-            ease: 'none',
-            force3D: true,
-            scrollTrigger: {
-              trigger: wrap,
-              start: i ? 'top bottom' : 'top 70%',
-              end: 'bottom top',
-              scrub: true,
-            },
-          }
-        );
+      const images = Array.from(document.querySelectorAll('#images .parallax-img')) as HTMLDivElement[];
+      let loaded = 0;
+      const tryInit = () => {
+        if (++loaded === images.length) {
+          // All images loaded, now set up parallax
+          wraps.forEach((wrap, i) => {
+            const img = wrap.querySelector<HTMLElement>('.parallax-img');
+            if (!img) return;
+            gsap.fromTo(
+              img,
+              { yPercent: i ? -8 : -4 },
+              {
+                yPercent: 8,
+                ease: 'none',
+                force3D: true,
+                scrollTrigger: {
+                  trigger: wrap,
+                  start: i ? 'top bottom' : 'top 70%',
+                  end: 'bottom top',
+                  scrub: true,
+                },
+              }
+            );
+          });
+        }
+      };
+      if (images.length === 0) return;
+      images.forEach((img) => {
+        if ((img as any).complete || img.getAttribute('data-loaded') === 'true') {
+          tryInit();
+        } else {
+          img.addEventListener('load', tryInit, { once: true });
+          img.addEventListener('error', tryInit, { once: true });
+        }
       });
     },
     { scope: containerRef }
@@ -131,8 +154,8 @@ const ProjectDetails = ({ project }: Props) => {
     <section className="pt-5 pb-14">
       <div className="container" ref={containerRef}>
         <TransitionLink
-          back
-          href="/"
+          href="/#selected-projects"
+          scrollToId="selected-projects"
           className="mb-16 inline-flex gap-2 items-center group h-12"
         >
           <ArrowLeft className="group-hover:-translate-x-1 group-hover:text-primary transition-all duration-300" />

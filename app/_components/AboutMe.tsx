@@ -73,7 +73,7 @@ const AboutMe = () => {
                     <div className="md:col-span-7">
                         <div className="text-lg text-muted-foreground max-w-[450px]">
                             <p className="slide-up-and-fade">
-                                I&apos;m a Machine learning developer pursuing master's in Computer Science
+                                I&apos;m a Machine learning developer pursuing master&apos;s in Computer Science
                                 specialized in Data Science focused on building intelligent, scalable, and production-ready systems
                                 I enjoy translating complex problems into practical, well-designed technical solutions with real-world impact.
                             </p>

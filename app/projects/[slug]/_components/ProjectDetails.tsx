@@ -32,7 +32,6 @@ const ProjectDetails = ({ project }: Props) => {
 
     // Kill old triggers + clear GSAP's remembered scroll positions
     ScrollTrigger.getAll().forEach((t) => t.kill());
-    // @ts-expect-error - clearScrollMemory exists in GSAP ScrollTrigger
     ScrollTrigger.clearScrollMemory?.();
 
     const scrollTopHard = () => {

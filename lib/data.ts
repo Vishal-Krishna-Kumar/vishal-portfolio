@@ -479,7 +479,7 @@ Academic / Research-Oriented Project – POS Tagging & Autocorrection
         slug: 'animation-website',
         sourceCode:"https://github.com/Vishal-Krishna-Kumar/3D-GamingSite",
         liveUrl: 'https://3d-gamingsite.netlify.app/',
-        year: 2026,        
+        year: 2025,        
         description: `Immersive 3D web experience with real-time rendering, physics simulations, and interactive animations. 
         Built with modern web technologies achieving 90 FPS on mid-range devices and <1.5s load time.
          <br/><br/>

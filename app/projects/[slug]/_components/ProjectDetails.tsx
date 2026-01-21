@@ -1,4 +1,6 @@
 'use client';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import parse from 'html-react-parser';
 import ArrowAnimation from '@/components/ArrowAnimation';
 import TransitionLink from '@/components/TransitionLink';
@@ -17,6 +19,12 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const ProjectDetails = ({ project }: Props) => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [pathname]); 
+// pathname
 
     useGSAP(
         () => {

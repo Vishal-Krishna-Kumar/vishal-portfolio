@@ -94,8 +94,9 @@ export const PROJECTS: IProject[] = [
         description: `
         🏆 <strong>1st Place – SCE Hacks 2025</strong> <br/>
 
-        Designed and implemented GraphAugmented Intelligence (GAI), a prompt-aware, knowledge graph–driven retrieval-augmented generation framework that enhances factual grounding and reduces hallucinations in LLMs by 40%. 
-        The system integrates semantic graph embeddings with multi-hop reasoning paths to improve answer accuracy across complex, multi-domain queries. <br/> <br/>
+        Designed and implemented Graph-Augmented Intelligence (GAI), a prompt-aware, knowledge graph–driven Retrieval-Augmented Generation (RAG) framework that improves factual grounding and significantly reduces hallucinations in Large Language Models (LLMs). The system combines structured knowledge graphs with LLM reasoning to enable accurate, low-latency responses for complex, multi-hop queries.
+
+        GAI dynamically extracts minimal, prompt-aware contextual subgraphs from a knowledge graph and injects them into the LLM generation pipeline, enabling grounded reasoning across multi-domain information. The framework was validated on large-scale biomedical knowledge graphs, supporting reasoning over entities such as diseases, drugs, genes, and biological relationships. <br/><br/>
       
       Key Features:<br/>
       <ul>

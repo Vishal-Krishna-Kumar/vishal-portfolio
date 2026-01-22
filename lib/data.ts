@@ -137,8 +137,8 @@ export const PROJECTS: IProject[] = [
         techStack: ["PyTorch", "KG-RAG", "Neo4j", "FastAPI", "React", "Docker", "Kubernetes", "GraphQL"],
         demoViedo: ['/projects/images/gaidemo-1.gif', '/projects/images/gaidemo-2.mp4', '/projects/images/gaidemo-3.mp4', '/projects/images/gaidemo-4.mp4'],
 
-        thumbnail: '/projects/thumbnail/kg-rag-1.jpeg',
-        longThumbnail: '/projects/long/kg-rag-1.jpeg',
+        thumbnail: '/projects/thumbnail/kg-rag-1.webp',
+        longThumbnail: '/projects/long/kg-rag-1.webp',
         images: [
             '/projects/images/gai-1.1.webp',
             '/projects/images/gai-1.2.png',
@@ -242,7 +242,7 @@ Designed and contributed to a scalable **Deepfake Detection framework** for iden
 
 The framework enables standardized benchmarking of multiple state-of-the-art models on **FaceForensics++ (RAW, C23, C40)** and **Celeb-DF**, allowing fair comparison across compression levels and manipulation types.<br/><br/>
 
-<strong>Key Features:</strong><br/>
+Key Features:<br/>
 <ul>
   <li>🕵️ <strong>End-to-End Detection Pipeline:</strong> Video → frame extraction → preprocessing → model inference → classification.</li>
   <li>🧠 <strong>Multi-Model Architecture Support:</strong> ResNet, Xception, EfficientNet, MesoNet, GramNet, F3Net, ViT, and M2TR.</li>
@@ -252,7 +252,7 @@ The framework enables standardized benchmarking of multiple state-of-the-art mod
 </ul>
 <br/>
 
-<strong>Architecture Overview:</strong><br/>
+Architecture Overview: <br/>
 <ul>
   <li><strong>Video Processing Pipeline:</strong> Real/Fake video ingestion with frame extraction and preprocessing.</li>
   <li><strong>CNN-Based Models:</strong> Learn local spatial artifacts and texture inconsistencies in manipulated frames.</li>
@@ -261,7 +261,7 @@ The framework enables standardized benchmarking of multiple state-of-the-art mod
 </ul>
 <br/>
 
-<strong>Technical Highlights:</strong><br/>
+Technical Highlights:<br/>
 <ul>
   <li>Implemented in <strong>PyTorch</strong> with YAML-based experiment configuration</li>
   <li>Advanced preprocessing including face alignment, normalization, and frame sampling</li>

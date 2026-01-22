@@ -174,7 +174,7 @@ export const PROJECTS: IProject[] = [
         <ul>
             <li>🧠 3D Attention UNet Architecture: Integrates attention gates into UNet3D to suppress irrelevant regions and enhance tumor-focused feature learning.</li>
             <li>🧬 Multi-Modal MRI Fusion: Supports FLAIR, T1, T1CE, and T2 modalities for comprehensive tumor representation.</li>
-            <li>🎯 High Segmentation Accuracy: Achieved Dice scores > 0.97 across tumor sub-regions (WT, TC, ET).</li>
+            <li>🎯 High Segmentation Accuracy: Achieved Dice scores > 0.90 across tumor sub-regions (WT, TC, ET).</li>
             <li>📊 Survival Prediction Module: Includes optional regression/classification head for patient survival estimation.</li>
             <li>⚙️ Deep Supervision & Residual Learning: Improves gradient flow and stabilizes training for 3D volumes.</li>
         </ul><br/>
@@ -200,7 +200,7 @@ export const PROJECTS: IProject[] = [
       Team Lead <br/>
       Research and Development of the Model:
       <ul>
-        <li>✅ Achieved Dice Score > 0.97 across all tumor sub-regions</li>
+        <li>✅ Achieved Dice Score > 0.90 across all tumor sub-regions</li>
         <li>🎨 Accuracy of 20% improve combining multimodel COUNCIL</li>
         <li>🔄 Sensitivity of 96.5% and neglecting the noise in segmentation</li>
         <li>🖥️ Inference Time of 0.8 seconds per volume</li>
@@ -237,36 +237,39 @@ export const PROJECTS: IProject[] = [
         liveUrl: 'https://deep-fake-detection-paper.tiiny.site',
         year: 2024,
         //  demoViedo: [],
-        description: `Advanced deepfake detection framework using ensemble of XceptionNet, EfficientNet, and Vision Transformers. Achieved state-of-the-art 94.2% accuracy on DFDC dataset with 2.1% false positive rate. System includes real-time video analysis and explainable AI visualizations.<br/><br/>
+        description: `
+Designed and contributed to a scalable **Deepfake Detection framework** for identifying manipulated media using **CNN- and Transformer-based architectures**. The system provides an extensible pipeline for **training, evaluation, benchmarking, and inference** across widely used deepfake datasets, supporting both research and real-world security applications.<br/><br/>
 
-        Key Features:<br/>
-        <ul>
-            <li>🕵️ Deepfake Detection Pipeline: End-to-end system for detecting manipulated videos using CNN and Transformer-based architectures.</li>
-            <li>🧠 Multi-Model Architecture Support: Includes ResNet, Xception, EfficientNet, MesoNet, GramNet, ViT, and M2TR.</li>
-            <li>🎯 High Detection Accuracy: Achieved up to 99.9% accuracy on FF-DF and 99.7% on Celeb-DF datasets.</li>
-            <li>🧬 Frequency & Attention-Based Learning: Leverages spatial, temporal, and frequency-domain cues for robust forgery detection.</li>
-            <li>⚙️ Research & Production Ready: Modular design for training, evaluation, benchmarking, and deployment.</li>
-        </ul>
-        <br/>
+The framework enables standardized benchmarking of multiple state-of-the-art models on **FaceForensics++ (RAW, C23, C40)** and **Celeb-DF**, allowing fair comparison across compression levels and manipulation types.<br/><br/>
 
-        Architecture Overview:<br/>
-        <ul>
-            <li>Video Processing Pipeline: Real/Fake Video → Frame Extraction → Preprocessing → Model Inference.</li>
-            <li>CNN-Based Models: Capture spatial artifacts and texture inconsistencies in manipulated frames.</li>
-            <li>Transformer-Based Models: Learn long-range dependencies and global manipulation patterns.</li>
-            <li>Unified Evaluation Framework: Standardized benchmarking across FF-DF (RAW, C23, C40) and Celeb-DF datasets.</li>
-        </ul>
-        <br/>
-
-        Technical Highlights:<br/>
-        <ul>
-            <li>Implemented in PyTorch with configurable YAML-based experiment setup</li>
-            <li>Advanced preprocessing including face alignment, normalization, and frame sampling</li>
-            <li>Supports training, evaluation, visualization, and single-image/video inference</li>
-            <li>Integrated performance metrics: Accuracy, AUC, Precision, Recall, and F1-score</li>
+<strong>Key Features:</strong><br/>
+<ul>
+  <li>🕵️ <strong>End-to-End Detection Pipeline:</strong> Video → frame extraction → preprocessing → model inference → classification.</li>
+  <li>🧠 <strong>Multi-Model Architecture Support:</strong> ResNet, Xception, EfficientNet, MesoNet, GramNet, F3Net, ViT, and M2TR.</li>
+  <li>🎯 <strong>High Detection Performance:</strong> Achieved up to <strong>95.9% accuracy on FF-DF</strong> and <strong>94.7% on Celeb-DF</strong> across baseline models.</li>
+  <li>🧬 <strong>Frequency & Attention-Based Learning:</strong> Captures spatial, temporal, and frequency-domain forgery cues.</li>
+  <li>⚙️ <strong>Research-Ready Design:</strong> Modular, configurable framework for training, evaluation, visualization, and inference.</li>
 </ul>
+<br/>
 
-`,
+<strong>Architecture Overview:</strong><br/>
+<ul>
+  <li><strong>Video Processing Pipeline:</strong> Real/Fake video ingestion with frame extraction and preprocessing.</li>
+  <li><strong>CNN-Based Models:</strong> Learn local spatial artifacts and texture inconsistencies in manipulated frames.</li>
+  <li><strong>Transformer-Based Models:</strong> Capture global context and long-range manipulation patterns.</li>
+  <li><strong>Unified Evaluation Framework:</strong> Standardized benchmarking across FF-DF (RAW, C23, C40) and Celeb-DF datasets.</li>
+</ul>
+<br/>
+
+<strong>Technical Highlights:</strong><br/>
+<ul>
+  <li>Implemented in <strong>PyTorch</strong> with YAML-based experiment configuration</li>
+  <li>Advanced preprocessing including face alignment, normalization, and frame sampling</li>
+  <li>Supports training, evaluation, visualization, and single-image/video inference</li>
+  <li>Integrated performance metrics: Accuracy, AUC, Precision, Recall, and F1-score</li>
+</ul>
+`
+,
 role: `
       Team Junior Lead <br/>:
       Collaborate with Wisen Platform :

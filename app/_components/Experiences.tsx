@@ -69,6 +69,7 @@ const Experiences = () => {
 
 // ExperienceItem component with hover image and description
 import { useState } from 'react';
+import Image from 'next/image';
 const ExperienceItem = ({ item }: { item: any }) => {
     const [hovered, setHovered] = useState(false);
     return (
@@ -83,9 +84,11 @@ const ExperienceItem = ({ item }: { item: any }) => {
                     {item.title}
                 </p>
                 {hovered && item.thumbnail && (
-                    <img
+                    <Image
                         src={item.thumbnail}
                         alt={item.title}
+                        width={224}
+                        height={144}
                         className="absolute left-full top-1/2 -translate-y-1/2 ml-6 w-56 h-36 object-cover rounded-lg shadow-lg z-20 border border-neutral-800 bg-neutral-900"
                         style={{ pointerEvents: 'none' }}
                     />

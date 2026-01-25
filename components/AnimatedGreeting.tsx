@@ -62,7 +62,7 @@ const AnimatedGreeting: React.FC = () => {
     <div className="w-full flex flex-col items-center mt-8">
       {showInput ? (
         <form onSubmit={handleSubmit} className="flex flex-col items-center gap-2 bg-white/80 p-4 rounded-xl shadow-lg">
-          <label htmlFor="visitor-name" className="text-lg font-semibold">What's your name?</label>
+          <label htmlFor="visitor-name" className="text-lg font-semibold">What&apos;s your name?</label>
           <input
             id="visitor-name"
             type="text"

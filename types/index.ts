@@ -15,6 +15,12 @@ export type Variant =
     | 'link'
     | 'no-color';
 
+export interface IProjectImage {
+    src: string;
+    title?: string;
+    description?: string;
+}
+
 export interface IProject {
     title: string;
     demoViedo?: string[];
@@ -24,7 +30,7 @@ export interface IProject {
     techStack: string[];
     thumbnail: string;
     longThumbnail: string;
-    images: string[];
+    images: IProjectImage[];
     slug: string;
     liveUrl?: string;
     sourceCode?: string;

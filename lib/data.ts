@@ -1,27 +1,27 @@
 import { IProject } from '@/types';
 // import ProjectVideoCarousel from '@/components/ProjectVideoCarousel';
 
-
 export const GENERAL_INFO = {
-    email: 'vishalkrishnakkr@gmail.com',
-    linkedin : "https://www.linkedin.com/in/vishal-krishna-kumar-65583a201/",
+  email: 'vishalkrishnakkr@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/vishal-krishna-kumar-65583a201/',
 
-    emailSubject: "Let's collaborate on a project",
-    emailBody: 'Hi Vishal, I am reaching out to you because...',
+  emailSubject: "Let's collaborate on a project",
+  emailBody:
+    'Hi Vishal,\n\nI came across your work and wanted to reach out about...',
 
-    oldPortfolio: 'https://www.vishal-krishna.me/',
-    upworkProfile: '',
+  oldPortfolio: 'https://www.vishal-krishna.me/',
+  upworkProfile: '',
 };
 
 export const SOCIAL_LINKS = [
-    { name: 'Github', url: 'https://github.com/Vishal-Krishna-Kumar' },
-    { name: 'Linkedin', url: 'https://www.linkedin.com/in/vishal-krishna-kumar-65583a201/' },
-    { name: 'Instagram', url: 'https://www.instagram.com/_vishal.27' },
-    { name: 'Portfolio CLI', url: GENERAL_INFO.oldPortfolio },
+  { name: 'GitHub', url: 'https://github.com/Vishal-Krishna-Kumar' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/vishal-krishna-kumar-65583a201/' },
+  { name: 'Instagram', url: 'https://www.instagram.com/_vishal.27' },
+  { name: 'Portfolio CLI', url: GENERAL_INFO.oldPortfolio },
 ];
 
 export const MY_STACK = {
-     ml_ai: [
+  ml_ai: [
     { name: 'Machine Learning', icon: '/logo/ml.png' },
     { name: 'Deep Learning', icon: '/logo/dl.png' },
     { name: 'NLP', icon: '/logo/nlp.png' },
@@ -29,6 +29,7 @@ export const MY_STACK = {
     { name: 'RAG', icon: '/logo/rag.png' },
     { name: 'GraphRAG', icon: '/logo/graphrag.png' },
   ],
+
   frameworks: [
     { name: 'PyTorch', icon: '/logo/pytorch.png' },
     { name: 'TensorFlow', icon: '/logo/tensorflow.png' },
@@ -36,62 +37,32 @@ export const MY_STACK = {
     { name: 'OpenCV', icon: '/logo/opencv.png' },
     { name: 'Hugging Face', icon: '/logo/huggingface.png' },
     { name: 'LangChain', icon: '/logo/langchain.png' },
-    ],
+  ],
 
+  database: [
+    { name: 'MySQL', icon: '/logo/mysql.svg' },
+    { name: 'Vector Databases', icon: '/logo/vector-db.png' },
+    { name: 'PostgreSQL', icon: '/logo/postgreSQL.png' },
+    { name: 'MongoDB', icon: '/logo/mongodb.svg' },
+  ],
 
-    database: [
-        {
-            name: 'MySQL',
-            icon: '/logo/mysql.svg',
-        },
-        {
-            name :"Vector DataBase",
-            icon : "/logo/vector-db.png",
-        },
-        {
-            name: 'PostgreSQL',
-            icon: '/logo/postgreSQL.png',
-        },
-        {
-            name: 'MongoDB',
-            icon: '/logo/mongodb.svg',
-        },
-    ],
-
-    tools: [
-        {
-            name: 'Git',
-            icon: '/logo/git.png',
-        },
-        {
-            name: 'Docker',
-            icon: '/logo/docker.svg',
-        },
-        {
-            name: 'AWS',
-            icon: '/logo/aws.png',
-        },
-        
-        {
-            name : "Neo4j",
-            icon : "/logo/neo4j.png",
-        },
-        {
-            name: "Vercel",
-            icon: "/logo/vercel.png",
-        }
-    ],
+  tools: [
+    { name: 'Git', icon: '/logo/git.png' },
+    { name: 'Docker', icon: '/logo/docker.svg' },
+    { name: 'AWS', icon: '/logo/aws.png' },
+    { name: 'Neo4j', icon: '/logo/neo4j.png' },
+    { name: 'Vercel', icon: '/logo/vercel.png' },
+  ],
 };
 
 export const PROJECTS: IProject[] = [
-    {
-        title: 'GraphAugmented Intelligence',
-        slug: 'GAI',
-        sourceCode : "https://github.com/Vishal-Krishna-Kumar/GraphAugmented-Intelligence_GAI",
-        // liveUrl: 'https://electroev.co.uk/',
-        year: 2025,
-        
-        description: `
+  {
+    title: 'GraphAugmented Intelligence',
+    slug: 'GAI',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/GraphAugmented-Intelligence_GAI',
+    year: 2025,
+
+     description: `
         🏆 <strong>1st Place – SCE Hacks 2025</strong> <br/>
 
         Designed and implemented Graph-Augmented Intelligence (GAI), a prompt-aware, knowledge graph–driven Retrieval-Augmented Generation (RAG) framework that improves factual grounding and significantly reduces hallucinations in Large Language Models (LLMs). The system combines structured knowledge graphs with LLM reasoning to enable accurate, low-latency responses for complex, multi-hop queries.<br/><br/>
@@ -134,20 +105,41 @@ export const PROJECTS: IProject[] = [
         <li>🖥️ Federated Graph Updates and learning.</li>
       </ul>
       `,
-        techStack: ["PyTorch", "KG-RAG", "Neo4j", "FastAPI", "React", "Docker", "Kubernetes", "GraphQL"],
-        demoViedo: ['/projects/images/gaidemo-1.gif', '/projects/images/gaidemo-2.mp4', '/projects/images/gaidemo-3.mp4', '/projects/images/gaidemo-4.mp4'],
 
-        thumbnail: '/projects/thumbnail/kg-rag-1.webp',
-        longThumbnail: '/projects/long/kg-rag-1.webp',
-        images: [
-            '/projects/images/gai-1.1.webp',
-            '/projects/images/gai-1.2.png',
-            '/projects/images/gai-1.3.png',
-            
-        ],
-    },
+    techStack: [ 'PyTorch', 'KG-RAG','Neo4j','FastAPI','React','Docker','Kubernetes','GraphQL',],
 
 
+    demoViedo: [
+      '/projects/images/gaidemo-1.gif',
+      '/projects/images/gaidemo-2.mp4',
+      '/projects/images/gaidemo-3.mp4',
+      '/projects/images/gaidemo-4.mp4',
+    ],
+
+    thumbnail: '/projects/thumbnail/kg-rag-1.webp',
+    longThumbnail: '/projects/long/kg-rag-1.webp',
+
+    images: [
+      {
+        src: '/projects/images/gai-1.1.webp',
+        title: 'GAI System Overview',
+        description:
+          'End-to-end flow from prompt → subgraph retrieval → evidence injection → grounded LLM response.',
+      },
+      {
+        src: '/projects/images/gai-1.2.png',
+        title: 'Knowledge Graph Construction',
+        description:
+          'Multi-source ingestion and schema design for biomedical entities and relationships using Neo4j.',
+      },
+      {
+        src: '/projects/images/gai-1.3.png',
+        title: 'Prompt-Aware Retrieval',
+        description:
+          'Minimal, context-relevant subgraph extraction to support multi-hop reasoning with explainable evidence.',
+      },
+    ],
+  },
 
 
 
@@ -157,15 +149,34 @@ export const PROJECTS: IProject[] = [
 
 
 
-    {
-        title: '3D Attention UNet++ Brain Tumor Segmentation',
-        slug: '3d-unet-brain-tumor',
-        sourceCode : "https://github.com/Vishal-Krishna-Kumar/BRaTS-attention-Tumor-Segmentation-UNet-",
-        liveUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11929897/',
-        year: 2025,
-        // demoViedo: [],
 
-        description: `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    title: '3D Attention UNet++ Brain Tumor Segmentation',
+    slug: '3d-unet-brain-tumor',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/BRaTS-attention-Tumor-Segmentation-UNet-',
+    liveUrl: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC11929897/',
+    year: 2025,
+
+     description: `
         🏆 <strong>2nd Place, Hack for Research 2025</strong> <br/>
 
         Advanced 3D Attention UNet framework for multimodal MRI brain tumor segmentation and survival prediction, designed for precise volumetric analysis of gliomas. The model leverages attention mechanisms to selectively focus on tumor-relevant regions, achieving high Dice similarity and robust boundary delineation on the BraTS dataset.<br/><br/>
@@ -206,21 +217,40 @@ export const PROJECTS: IProject[] = [
         <li>🖥️ Inference Time of 0.8 seconds per volume</li>
       </ul>
       `,
-    
-        techStack: ["PyTorch", "3D CNNs", "BraTS Dataset", "MONAI", "NumPy", "Matplotlib", "ITK"],
-
-        thumbnail: '/projects/thumbnail/3d-attention-1.jpg',
-        longThumbnail: '/projects/long/3d-attention-1.jpg',
-        images: [
-            '/projects/images/3d-attention-1.1.png',
-            '/projects/images/3d-attention-1.2.png',
-            '/projects/images/3d-attention-1.3.png',
-            '/projects/images/3d-attention-1.4.png',
-        ],
-       
-    },
 
 
+    techStack: ['PyTorch', '3D CNNs', 'BraTS Dataset', 'MONAI', 'NumPy', 'Matplotlib', 'ITK'],
+
+    thumbnail: '/projects/thumbnail/3d-attention-1.jpg',
+    longThumbnail: '/projects/long/3d-attention-1.jpg',
+
+    images: [
+      {
+        src: '/projects/images/3d-attention-1.1.png',
+        title: 'Model Architecture',
+        description:
+          '3D UNet++ backbone with attention gates and deep supervision for stable volumetric learning.',
+      },
+      {
+        src: '/projects/images/3d-attention-1.2.png',
+        title: 'Multimodal MRI Inputs',
+        description:
+          'Fusion of FLAIR/T1/T1CE/T2 modalities to capture complementary tumor signals.',
+      },
+      {
+        src: '/projects/images/3d-attention-1.3.png',
+        title: 'Segmentation Outputs',
+        description:
+          'Predicted tumor subregions (WT/TC/ET) with strong boundary delineation on BraTS samples.',
+      },
+      {
+        src: '/projects/images/3d-attention-1.4.png',
+        title: 'Metrics & Validation',
+        description:
+          'Quantitative evaluation using Dice and Hausdorff distance with sensitivity/specificity analysis.',
+      },
+    ],
+  },
 
 
 
@@ -230,14 +260,33 @@ export const PROJECTS: IProject[] = [
 
 
 
-    {
-        title:'DeepFake Detection System',
-        slug: 'deepfake-detection',
-        sourceCode : "https://github.com/Vishal-Krishna-Kumar/DeepFake-Detection-System",
-        liveUrl: 'https://deep-fake-detection-paper.tiiny.site',
-        year: 2024,
-        //  demoViedo: [],
-        description: `
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    title: 'Deepfake Detection System',
+    slug: 'deepfake-detection',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/DeepFake-Detection-System',
+    liveUrl: 'https://deep-fake-detection-paper.tiiny.site',
+    year: 2024,
+
+     description: `
 Designed and contributed to a scalable **Deepfake Detection framework** for identifying manipulated media using **CNN- and Transformer-based architectures**. The system provides an extensible pipeline for **training, evaluation, benchmarking, and inference** across widely used deepfake datasets, supporting both research and real-world security applications.<br/><br/>
 
 The framework enables standardized benchmarking of multiple state-of-the-art models on **FaceForensics++ (RAW, C23, C40)** and **Celeb-DF**, allowing fair comparison across compression levels and manipulation types.<br/><br/>
@@ -280,18 +329,32 @@ role: `
 
       </ul>
       `,
-    
+    techStack: ['TensorFlow', 'XceptionNet', 'OpenCV', 'FFmpeg', 'Flask', 'React', 'Docker'],
 
-        techStack: ["TensorFlow", "XceptionNet", "OpenCV", "FFmpeg", "Flask", "React", "Docker"],
+    thumbnail: '/projects/thumbnail/deepfake-1.png',
+    longThumbnail: '/projects/long/deepfake-1.png',
 
-        thumbnail: '/projects/thumbnail/deepfake-1.png',
-        longThumbnail: '/projects/long/deepfake-1.png',
-        images: [
-            '/projects/images/deepfake-1.1.png',
-            '/projects/images/deepfake-1.2.png',
-            '/projects/images/deepfake-1.3.gif',
-        ],
-    },
+    images: [
+      {
+        src: '/projects/images/deepfake-1.1.png',
+        title: 'Detection Pipeline',
+        description:
+          'High-level flow from video ingestion to classification with modular preprocessing and inference.',
+      },
+      {
+        src: '/projects/images/deepfake-1.2.png',
+        title: 'Benchmarking & Metrics',
+        description:
+          'Cross-dataset evaluation with standardized metrics and compression-level comparisons.',
+      },
+      {
+        src: '/projects/images/deepfake-1.3.gif',
+        title: 'Inference Visualization',
+        description:
+          'Example inference output showing frame-level processing and final prediction aggregation.',
+      },
+    ],
+  },
 
 
 
@@ -305,15 +368,36 @@ role: `
 
 
 
-    {
-        title: 'AlphaZero-Inspired Reinforcement Learning System',
-        slug: 'alpha-zero-rl',
-        sourceCode : "https://github.com/Vishal-Krishna-Kumar/AlphaZero-Chess",
-        liveUrl: "https://alpha-zero-paper.tiiny.site/",
-        year: 2024,
-        //  demoViedo: [],
 
-        description: `AlphaZero-inspired self-play reinforcement learning system with advanced Monte Carlo Tree Search (MCTS) and 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  {
+    title: 'AlphaZero-Inspired Reinforcement Learning System',
+    slug: 'alpha-zero-rl',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/AlphaZero-Chess',
+    liveUrl: 'https://alpha-zero-paper.tiiny.site/',
+    year: 2024,
+
+     description: `AlphaZero-inspired self-play reinforcement learning system with advanced Monte Carlo Tree Search (MCTS) and 
         neural policy-value networks. Achieved a ~81 % win rate against strong baseline engines and rule-based opponents, with 30% faster convergence through optimized exploration strategies.
 <br/><br/>
 
@@ -357,22 +441,48 @@ Personal Research Project – Self-Play & Game AI worked with amazon Android Dev
 </ul>
       `,
 
+    techStack: ['PyTorch', 'MCTS', 'OpenAI Gym', 'Ray', 'Docker', 'CUDA'],
+
+    thumbnail: '/projects/thumbnail/alphazero-1.jpg',
+    longThumbnail: '/projects/long/alphazero-1.jpg',
+
+    images: [
+      {
+        src: '/projects/images/alphazero-1.1.jpg',
+        title: 'Self-Play Training Loop',
+        description:
+          'Data generation via self-play feeding a replay buffer to train the policy–value network.',
+      },
+      {
+        src: '/projects/images/alphazero-1.2.png',
+        title: 'MCTS Search Visualization',
+        description:
+          'Tree expansion and visit counts guided by neural priors and value estimates (PUCT).',
+      },
+      {
+        src: '/projects/images/alphazero-1.3.jpg',
+        title: 'Policy–Value Network',
+        description:
+          'Single network predicting move probabilities and win likelihood from board states.',
+      },
+      {
+        src: '/projects/images/alphazero-1.4.png',
+        title: 'Evaluation & Promotion',
+        description:
+          'Checkpoint tournament against prior best/baselines to promote stronger models.',
+      },
+      {
+        src: '/projects/images/alphazero-1.5.png',
+        title: 'Multi-Game Support',
+        description:
+          'Unified game API enabling the same training pipeline to support different board games.',
+      },
+    ],
+  },
 
 
 
 
-    techStack: ["PyTorch", "TensorFlow", "MCTS", "OpenAI Gym", "Ray", "Docker", "CUDA"],
-
-        thumbnail: '/projects/thumbnail/alphazero-1.jpg',
-        longThumbnail: '/projects/long/alphazero-1.jpg',
-        images: [
-            '/projects/images/alphazero-1.1.jpg',
-            '/projects/images/alphazero-1.2.png',
-            '/projects/images/alphazero-1.3.jpg',
-            '/projects/images/alphazero-1.4.png',
-            '/projects/images/alphazero-1.5.png',
-        ],
-    },
 
 
 
@@ -395,15 +505,18 @@ Personal Research Project – Self-Play & Game AI worked with amazon Android Dev
 
 
 
-    {
-        title: 'Multilingual POS Tagging & Context-Aware Spell Correction-NLP',
-        slug: 'nlp-pos-spellcheck',
-        sourceCode : "https://github.com/Vishal-Krishna-Kumar/nlp-sequence-labeling-autocorrection",
-        liveUrl : "https://pos-engine.vishalkrishnakkr.workers.dev/blog/nlp-sequence-labeling-autocorrection/",
 
-        year: 2024,
-        //  demoViedo: [],
-        description: `State-of-the-art multilingual POS tagging and context-aware spell correction system supporting 5+ languages. Achieved 96.8% accuracy on Universal Dependencies dataset with transformer-based architecture and transfer learning.
+
+  
+
+  {
+    title: 'Multilingual POS Tagging & Context-Aware Spell Correction',
+    slug: 'nlp-pos-spellcheck',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/nlp-sequence-labeling-autocorrection',
+    liveUrl: 'https://pos-engine.vishalkrishnakkr.workers.dev/blog/nlp-sequence-labeling-autocorrection/',
+    year: 2024,
+
+   description: `State-of-the-art multilingual POS tagging and context-aware spell correction system supporting 5+ languages. Achieved 96.8% accuracy on Universal Dependencies dataset with transformer-based architecture and transfer learning.
          <br/><br/>
 
         Key Features:<br/>
@@ -444,20 +557,40 @@ Academic / Research-Oriented Project – POS Tagging & Autocorrection
   <li>⚙️ Developed end-to-end NLP pipelines covering training, inference, evaluation, and error analysis.</li>
 </ul>
 `
+    ,
 
-,
-    techStack: ["spaCy", "Transformers", "NLTK", "Scikit-learn", "PyTorch", "FastAPI"],
-        
+    techStack: ['spaCy', 'Transformers', 'NLTK', 'Scikit-learn', 'PyTorch', 'FastAPI'],
+
     thumbnail: '/projects/thumbnail/nlp-1.png',
-        longThumbnail: '/projects/long/nlp-1.png',
-        images: [
-            '/projects/images/nlp-1.1.png',
-            '/projects/images/nlp-1.2.png',
-            '/projects/images/nlp-1.3.png',
-            '/projects/images/nlp-1.4.png',
-        ],
+    longThumbnail: '/projects/long/nlp-1.png',
 
-    },
+    images: [
+      {
+        src: '/projects/images/nlp-1.1.png',
+        title: 'POS Tagging Overview',
+        description:
+          'Sequence labeling pipeline with HMM and neural baselines for multilingual tagging.',
+      },
+      {
+        src: '/projects/images/nlp-1.2.png',
+        title: 'Model Comparisons',
+        description:
+          'Benchmark results comparing classical probabilistic models vs deep learning approaches.',
+      },
+      {
+        src: '/projects/images/nlp-1.3.png',
+        title: 'Spell Correction Pipeline',
+        description:
+          'Context-aware correction using smoothed n-grams and edit-distance candidate generation.',
+      },
+      {
+        src: '/projects/images/nlp-1.4.png',
+        title: 'Error Analysis',
+        description:
+          'Word- and sentence-level error breakdown with examples and failure-mode categorization.',
+      },
+    ],
+  },
 
 
 
@@ -478,13 +611,20 @@ Academic / Research-Oriented Project – POS Tagging & Autocorrection
 
 
 
-    {
-        title: 'Interactive 3D Game Website',
-        slug: 'animation-website',
-        sourceCode:"https://github.com/Vishal-Krishna-Kumar/3D-GamingSite",
-        liveUrl: 'https://3d-gamingsite.netlify.app/',
-        year: 2025,        
-        description: `Immersive 3D web experience with real-time rendering, physics simulations, and interactive animations. 
+
+
+
+
+
+
+  {
+    title: 'Interactive 3D Game Website',
+    slug: 'animation-website',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/3D-GamingSite',
+    liveUrl: 'https://3d-gamingsite.netlify.app/',
+    year: 2025,
+
+    description: `Immersive 3D web experience with real-time rendering, physics simulations, and interactive animations. 
         Built with modern web technologies achieving 90 FPS on mid-range devices and <1.5s load time.
          <br/><br/>
 
@@ -527,45 +667,75 @@ Personal Project – Award-Winning Website Recreation
 </ul>
 `
 ,
-        
-        techStack: ["React", "Three.js", "GSAP", "WebGL", "Vite", "TypeScript", "Tailwind CSS"],
 
-        thumbnail: '/projects/thumbnail/3dgamingsite-1.webp',
-        longThumbnail: '/projects/long/3dgamingsite-1.webp',
-        images: [
-            '/projects/images/3dgamingsite-1.1.webp',
-            '/projects/images/3dgamingsite-1.2.webp',
-            '/projects/images/3dgamingsite-1.3.gif',
-            '/projects/images/3dgamingsite-1.4.webp',
-        ]
-    },
-     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     
-    
-    
-    {
-        title: 'Combat Algo AI Game System',
-        slug: 'fps-ai-render-game',
-        sourceCode:"https://github.com/Vishal-Krishna-Kumar/Combat-Algo-Game",
-        liveUrl: 'https://vishalkrishna.itch.io/combat',
-        year: 2024,
-        // demoViedo: [],
-        description: `A high-performance Combat-style first-person shooter built with Python and Pygame, featuring AI-controlled enemies using shortest-path algorithms, intelligent spawn balancing, and real-time 
+    techStack: ['React', 'Three.js', 'GSAP', 'WebGL', 'Vite', 'TypeScript', 'Tailwind CSS'],
+
+    thumbnail: '/projects/thumbnail/3dgamingsite-1.webp',
+    longThumbnail: '/projects/long/3dgamingsite-1.webp',
+
+    images: [
+      {
+        src: '/projects/images/3dgamingsite-1.1.webp',
+        title: 'Landing Experience',
+        description:
+          'High-impact hero section with layered motion and smooth entrance animations.',
+      },
+      {
+        src: '/projects/images/3dgamingsite-1.2.webp',
+        title: 'Scroll-Based Storytelling',
+        description:
+          'ScrollTrigger-driven timelines powering section reveals, parallax, and transitions.',
+      },
+      {
+        src: '/projects/images/3dgamingsite-1.3.gif',
+        title: 'Micro-Interactions',
+        description:
+          'Hover + cursor-based 3D transforms for modern interactive depth and responsiveness.',
+      },
+      {
+        src: '/projects/images/3dgamingsite-1.4.webp',
+        title: 'Responsive Layout',
+        description:
+          'Mobile-first layout tuned for performance, readability, and consistent motion behavior.',
+      },
+    ],
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    title: 'Combat Algo: FPS AI Game System',
+    slug: 'fps-ai-render-game',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/Combat-Algo-Game',
+    liveUrl: 'https://vishalkrishna.itch.io/combat',
+    year: 2024,
+
+     description: `A high-performance Combat-style first-person shooter built with Python and Pygame, featuring AI-controlled enemies using shortest-path algorithms, intelligent spawn balancing, and real-time 
         ray-casting for immersive 3D gameplay.
          <br/><br/>
 
@@ -608,52 +778,65 @@ Personal Project – Combat -Style 3D Raycasting FPS
 `
 
 ,
-        
-        techStack: [
-    "Python",
-    "Pygame",
-    "Ray Casting",
-    "A* Pathfinding",
-    "OOP",
-    "Vector Math",
-    "AI Behavior Trees"
-  ],
 
-        thumbnail: '/projects/thumbnail/combat-1.png',
-        longThumbnail: '/projects/long/combat-1.png',
-        images: [
-            '/projects/images/combat-1.1.png',
-            '/projects/images/combat-1.2.png',
-            '/projects/images/combat-1.3.png',
-            '/projects/images/combat-1.4.png',
-        ]
-    },
+    techStack: ['Python', 'Pygame', 'Ray Casting', 'A* Pathfinding', 'OOP', 'Vector Math', 'AI Behavior Trees'],
 
+    thumbnail: '/projects/thumbnail/combat-1.png',
+    longThumbnail: '/projects/long/combat-1.png',
+
+    images: [
+      {
+        src: '/projects/images/combat-1.1.png',
+        title: 'Ray-Casting Renderer',
+        description:
+          'Depth-correct wall rendering using per-frame ray intersection for a classic FPS feel.',
+      },
+      {
+        src: '/projects/images/combat-1.2.png',
+        title: 'Enemy Navigation',
+        description:
+          'A* pathfinding on a grid map to pursue the player and avoid obstacles.',
+      },
+      {
+        src: '/projects/images/combat-1.3.png',
+        title: 'Gameplay Systems',
+        description:
+          'Health/ammo, pickups, and combat feedback integrated into a stable real-time loop.',
+      },
+      {
+        src: '/projects/images/combat-1.4.png',
+        title: 'Level & Asset Pipeline',
+        description:
+          'Organized textures, sprites, and map assets for efficient loading and reuse.',
+      },
+    ],
+  },
 ];
 
+
 export const MY_EXPERIENCE = [
-    {
-        title: "Advanced Software Engineering Virtual Experience . ",
-        company: 'Walmart',
-        description : "Completed advanced software engineering simulations across multiple Walmart teams. Implemented a novel heap data structure in Java for shipping workflows, demonstrating strong algorithmic problem-solving. Produced a UML class diagram for a data processor supporting multiple operating modes and database connections, and designed an ER diagram for a new accounting database based on business requirements.",
-        thumbnail: '/projects/thumbnail/walmart-1.png',
-        longThumbnail: '/projects/long/walmart-1.png',
-    },
-    {
-        title: 'BCG - Data Science intern Virtual . ',
-        company: 'BCG',
-        description : "Engineered an end-to-end data pipeline for a customer churn simulation, involving rigorous data cleaning, feature engineering of transactional drivers, and predictive modeling. Employed structured analytical thinking to validate model accuracy and ensure findings were rooted in statistically significant behavioral triggers.",
-        thumbnail: '/projects/thumbnail/bcg-1.png',
-        longThumbnail: '/projects/long/bcg-1.png',
-        // duration: 'Oct 2023 - Nov 2024',
-    },
-    {
-        title: 'Research Assistant  Intelligent Systems . ',
-        company: 'Intelligent Systems Lab',
-        description:
-      "Leading research in Retrieval-Augmented Generation (RAG) and graph-based reasoning systems. Developed modular RAG pipelines with semantic chunking and hybrid retrieval, reducing hallucinations by ~35%. Implemented computer vision models using PyTorch, achieving ~25% performance gains through architecture optimization.Contributed to open-source AI frameworks.",
-        thumbnail: '/projects/thumbnail/rag-1.jpg',
-        longThumbnail: '/projects/long/rag-1.jpg',
-        // duration: 'Oct 2022 - Sep 2023',
-    },
+  {
+    title: 'Advanced Software Engineering Virtual Experience',
+    company: 'Walmart (Forage)',
+    description:
+      'Completed advanced software engineering simulations across Walmart teams. Implemented a heap-based priority queue in Java for shipping workflows, produced a UML class diagram for a data processor with multiple execution modes and database connectivity, and designed an ER diagram for a new accounting database based on business requirements.',
+    thumbnail: '/projects/thumbnail/walmart-1.png',
+    longThumbnail: '/projects/long/walmart-1.png',
+  },
+  {
+    title: 'Data Science Virtual Experience',
+    company: 'BCG (Forage)',
+    description:
+      'Built an end-to-end churn analysis workflow: data cleaning, feature engineering of behavioral/transactional drivers, and predictive modeling. Applied structured evaluation and error analysis to ensure insights were supported by measurable model performance.',
+    thumbnail: '/projects/thumbnail/bcg-1.png',
+    longThumbnail: '/projects/long/bcg-1.png',
+  },
+  {
+    title: 'Research Assistant (Applied ML & Intelligent Systems)',
+    company: 'Intelligent Systems Lab',
+    description:
+      'Conducting research in Retrieval-Augmented Generation (RAG) and graph-based reasoning. Developed modular RAG pipelines with semantic chunking and hybrid retrieval, reducing hallucinations and improving grounding. Built and optimized computer vision models in PyTorch and contributed to reproducible research workflows and documentation.',
+    thumbnail: '/projects/thumbnail/rag-1.jpg',
+    longThumbnail: '/projects/long/rag-1.jpg',
+  },
 ];

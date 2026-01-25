@@ -17,16 +17,18 @@ interface Props {
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const preloadImages = (urls: string[]) => {
+
+import { IProjectImage } from '@/types';
+
+const preloadImages = (images: IProjectImage[]) => {
   return Promise.all(
-    urls.map(
-      (src) =>
-        new Promise<void>((resolve) => {
-          const img = new Image();
-          img.onload = () => resolve();
-          img.onerror = () => resolve();
-          img.src = src;
-        })
+    images.map((imgObj) =>
+      new Promise<void>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+        img.src = imgObj.src;
+      })
     )
   );
 };
@@ -222,15 +224,15 @@ const ProjectDetails = ({ project }: Props) => {
           className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
           id="images"
         >
-          {project.images.map((image) => (
+          {project.images.map((imageObj, idx) => (
             <div
-              key={image}
-              className="group relative w-full aspect-[750/400] overflow-hidden bg-background-light"
+              key={imageObj.src}
+              className="group relative w-full aspect-[750/400] overflow-hidden bg-background-light mb-6"
             >
               <div
                 className="parallax-img absolute inset-0 will-change-transform"
                 style={{
-                  backgroundImage: `url(${image})`,
+                  backgroundImage: `url(${imageObj.src})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat',
@@ -239,13 +241,21 @@ const ProjectDetails = ({ project }: Props) => {
               />
 
               <a
-                href={image}
+                href={imageObj.src}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="absolute top-4 right-4 bg-background/70 text-foreground size-12 inline-flex justify-center items-center transition-all opacity-0 hover:bg-primary hover:text-primary-foreground group-hover:opacity-100"
               >
                 <ExternalLink />
               </a>
+
+              {/* Title and Description Overlay */}
+              {(imageObj.title || imageObj.description) && (
+                <div className="absolute bottom-0 left-0 w-full bg-black/60 text-white p-4 text-left">
+                  {imageObj.title && <div className="font-bold text-lg mb-1">{imageObj.title}</div>}
+                  {imageObj.description && <div className="text-sm opacity-90">{imageObj.description}</div>}
+                </div>
+              )}
             </div>
           ))}
         </div>

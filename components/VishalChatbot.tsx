@@ -14,13 +14,13 @@ export default function VishalChatbot() {
   const [messages, setMessages] = useState(initialMessages);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const messagesEndRef = useRef(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-  async function sendMessage(e) {
+  async function sendMessage(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!input.trim()) return;
     const userMsg = { role: "user", content: input };
@@ -52,7 +52,7 @@ export default function VishalChatbot() {
             </span>
           </div>
         ))}
-        <div ref={messagesEndRef} />
+        <div ref={messagesEndRef as React.RefObject<HTMLDivElement>} />
       </div>
       <form onSubmit={sendMessage} className="flex border-t border-gray-200">
         <input

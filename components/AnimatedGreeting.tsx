@@ -81,6 +81,7 @@ const AnimatedGreeting: React.FC = () => {
             {greeting}, {name}{location ? ` from ${location}` : ''}!
           </h1>
           <p className="text-lg text-gray-600">Welcome to my portfolio 👋</p>
+          <p className="text-lg text-gray-600">Hi, I&apos;m Vishal Krishna Kumar</p>
         </div>
       )}
     </div>

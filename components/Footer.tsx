@@ -1,5 +1,5 @@
 import { GENERAL_INFO } from '@/lib/data';
-import Button from './Button';
+// ...existing code...
 import { Mail, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {

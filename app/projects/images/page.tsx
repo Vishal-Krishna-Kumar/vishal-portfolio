@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import { PROJECTS } from '@/lib/data';
 import { Metadata } from 'next';
+import Image from 'next/image';
+import type { IProjectImage } from '@/types';
 
 export const generateStaticParams = async () => {
   // Only generate params for images in all projects
@@ -11,7 +13,7 @@ export const generateStaticParams = async () => {
 
 export const generateMetadata = async ({ params }: { params: Promise<{ image: string }> }) => {
   const { image } = await params;
-  let found;
+  let found: IProjectImage | undefined;
   PROJECTS.forEach((project) => {
     if (!found) {
       found = project.images.find((img) => img.src.endsWith(image));
@@ -25,7 +27,8 @@ export const generateMetadata = async ({ params }: { params: Promise<{ image: st
 
 const Page = async ({ params }: { params: Promise<{ image: string }> }) => {
   const { image } = await params;
-  let found, projectTitle;
+  let found: IProjectImage | undefined;
+  let projectTitle: string | undefined;
   PROJECTS.forEach((project) => {
     if (!found) {
       found = project.images.find((img) => img.src.endsWith(image));
@@ -37,9 +40,11 @@ const Page = async ({ params }: { params: Promise<{ image: string }> }) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black/90 p-4">
       <div className="max-w-4xl w-full">
-        <img
+        <Image
           src={found.src}
           alt={found.title || projectTitle || image}
+          width={400}
+          height={300}
           className="w-full rounded-lg shadow-lg mb-4"
         />
         {(found.title || found.description) && (

@@ -224,7 +224,7 @@ const ProjectDetails = ({ project }: Props) => {
           className="fade-in-later relative flex flex-col gap-2 max-w-[800px] mx-auto"
           id="images"
         >
-          {project.images.map((imageObj, _idx) => (
+          {project.images.map((imageObj) => (
             <div
               key={imageObj.src}
               className="group relative w-full aspect-[750/400] overflow-hidden bg-background-light mb-6"

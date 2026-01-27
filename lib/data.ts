@@ -816,16 +816,16 @@ Personal Project – Combat -Style 3D Raycasting FPS
 
 export const MY_EXPERIENCE = [
   {
-    title: 'Advanced Software Engineering Virtual Experience',
-    company: 'Walmart (Forage)',
+    title: 'Advanced Software Engineering Intern Virtual Experience',
+    company: 'Walmart',
     description:
       'Completed advanced software engineering simulations across Walmart teams. Implemented a heap-based priority queue in Java for shipping workflows, produced a UML class diagram for a data processor with multiple execution modes and database connectivity, and designed an ER diagram for a new accounting database based on business requirements.',
     thumbnail: '/projects/thumbnail/walmart-1.png',
     longThumbnail: '/projects/long/walmart-1.png',
   },
   {
-    title: 'Data Science Virtual Experience',
-    company: 'BCG (Forage)',
+    title: 'Data Science Intern Virtual Experience',
+    company: 'BCG ',
     description:
       'Built an end-to-end churn analysis workflow: data cleaning, feature engineering of behavioral/transactional drivers, and predictive modeling. Applied structured evaluation and error analysis to ensure insights were supported by measurable model performance.',
     thumbnail: '/projects/thumbnail/bcg-1.png',

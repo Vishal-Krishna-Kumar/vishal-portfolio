@@ -116,8 +116,8 @@ export const PROJECTS: IProject[] = [
       '/projects/images/gaidemo-4.mp4',
     ],
 
-    thumbnail: '/projects/thumbnail/kg-rag-1.webp',
-    longThumbnail: '/projects/long/kg-rag-1.webp',
+    thumbnail: '/projects/thumbnail/kg-rag-1.png',
+    longThumbnail: '/projects/long/kg-rag-1.png',
 
     images: [
       {
@@ -221,8 +221,8 @@ export const PROJECTS: IProject[] = [
 
     techStack: ['PyTorch', '3D CNNs', 'BraTS Dataset', 'MONAI', 'NumPy', 'Matplotlib', 'ITK'],
 
-    thumbnail: '/projects/thumbnail/3d-attention-1.jpg',
-    longThumbnail: '/projects/long/3d-attention-1.jpg',
+    thumbnail: '/projects/thumbnail/3d-attention-1.webp',
+    longThumbnail: '/projects/long/3d-attention-1.webp',
 
     images: [
       {
@@ -331,8 +331,8 @@ role: `
       `,
     techStack: ['TensorFlow', 'XceptionNet', 'OpenCV', 'FFmpeg', 'Flask', 'React', 'Docker'],
 
-    thumbnail: '/projects/thumbnail/deepfake-1.png',
-    longThumbnail: '/projects/long/deepfake-1.png',
+    thumbnail: '/projects/thumbnail/deepfake-1.webp',
+    longThumbnail: '/projects/long/deepfake-1.webp',
 
     images: [
       {
@@ -565,12 +565,12 @@ Academic / Research-Oriented Project – POS Tagging & Autocorrection
     longThumbnail: '/projects/long/nlp-1.png',
 
     images: [
-      {
-        src: '/projects/images/nlp-1.1.png',
-        title: 'POS Tagging Overview',
-        description:
-          'Sequence labeling pipeline with HMM and neural baselines for multilingual tagging.',
-      },
+      // {
+      //   src: '/projects/images/nlp-1.1.png',
+      //   title: 'POS Tagging Overview',
+      //   description:
+      //     'Sequence labeling pipeline with HMM and neural baselines for multilingual tagging.',
+      // },
       {
         src: '/projects/images/nlp-1.2.png',
         title: 'Model Comparisons',

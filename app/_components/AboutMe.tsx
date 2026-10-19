@@ -81,7 +81,8 @@ const AboutMe = () => {
                                Currently, my interests are centered around Generative AI, Large Language Models (LLMs), 
                                Retrieval-Augmented Generation (RAG), and 
                                data-driven system design. 
-                               I am currently focused on strengthening my skills and actively looking for Summer 2026 internship opportunities.
+                               I recently completed an AI Engineer internship at Hirello.ai (July – September 2026),
+                               and I&apos;m looking for full-time software engineering roles starting in 2027.
                            </p>
                         </div>
                     </div>

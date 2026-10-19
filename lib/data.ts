@@ -816,6 +816,13 @@ Personal Project – Combat -Style 3D Raycasting FPS
 
 export const MY_EXPERIENCE = [
   {
+    title: 'AI Engineer Intern',
+    company: 'Hirello.ai — Remote',
+    duration: 'July 2026 – September 2026',
+    description:
+      'Built a resume-grounded RAG application-autofill feature for job-portal forms. Contributed code to 5 of the platform\'s 10 agents (Resume Optimizer, LinkedIn Labs, Outreach, Action Academy, Chat with Hiro). Fixed 3 Resume Optimizer defects, repaired Gmail, Outlook and Yahoo OAuth connection problems, fixed an IDOR access-control vulnerability with regression tests, and added cross-browser end-to-end tests covering 3 browsers. Worked in a 7-person product and engineering team across 10 one-week sprints. Stack: Python, FastAPI, SQLAlchemy, MySQL, JavaScript, Vue 3, Vertex AI/Gemini, Pinecone.',
+  },
+  {
     title: 'Advanced Software Engineering Intern Virtual Experience',
     company: 'Walmart',
     description:

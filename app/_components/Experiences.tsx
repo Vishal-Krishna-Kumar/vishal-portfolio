@@ -1,6 +1,6 @@
 'use client';
 import SectionTitle from '@/components/SectionTitle';
-import { MY_EXPERIENCE } from '@/lib/data';
+import { MY_EXPERIENCE, MY_JOB_SIMULATIONS } from '@/lib/data';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
@@ -58,6 +58,16 @@ const Experiences = () => {
 
                 <div className="grid gap-14">
                     {MY_EXPERIENCE.map((item) => (
+                        <ExperienceItem key={item.title} item={item} />
+                    ))}
+                </div>
+
+                {/* Forage job simulations are kept under their own non-employment heading. */}
+                <p className="text-2xl font-anton text-muted-foreground mt-20 mb-2 uppercase">
+                    Job Simulations (Forage) — not employment
+                </p>
+                <div className="grid gap-14 mt-6">
+                    {MY_JOB_SIMULATIONS.map((item) => (
                         <ExperienceItem key={item.title} item={item} />
                     ))}
                 </div>

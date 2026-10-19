@@ -42,15 +42,15 @@ const Banner = () => {
             >
                 <div className="max-md:grow max-md:flex flex-col justify-center items-start max-w-[544px]">
                     <h1 className="banner-title slide-up-and-fade leading-[.95] text-6xl sm:text-[80px] font-anton">
-                        <span className="text-primary">Machine learning</span>
-                        <br /> <span className="ml-4">Engineer</span>
+                        <span className="text-primary">Graduate</span>
+                        <br /> <span className="ml-4">Researcher</span>
                     </h1>
                     <p className="banner-description slide-up-and-fade mt-6 text-lg text-muted-foreground">
                         Hi! I&apos;m{' '}
                         <span className="font-medium text-foreground">
                             Vishal Krishna Kumar
                         </span>
-                        . A passionate ML Engineer with hands-on experience in model evaluation, Graph-Augmented Intelligence (GAI), LLM pipelines, and Retrieval-Augmented Generation (RAG) systems.
+                        . An MS Computer Science student and graduate researcher at City University of Seattle working on retrieval-augmented generation (RAG) and LLM evaluation, and a former AI Engineer Intern at Hirello.ai.
                     </p>
                     <Button
                         as="link"
@@ -67,25 +67,25 @@ const Banner = () => {
                 <div className="md:absolute bottom-[10%] right-[4%] flex md:flex-col gap-4 md:gap-8 text-center md:text-right">
                     <div className="slide-up-and-fade">
                         <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            4+
+                            2nd
                         </h5>
                         <p className="text-muted-foreground">
-                            Years of Experience in Model and ML Development
+                            Place, Hack for Research 2025
                         </p>
                     </div>
                     <div className="slide-up-and-fade">
                         <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            15+ 
+                            30%
                         </h5>
                         <p className="text-muted-foreground">
-                            Completed Projects
+                            Fewer LLM Hallucinations (Graduate Research)
                         </p>
                     </div>
                     <div className="slide-up-and-fade">
                         <h5 className="text-3xl sm:text-4xl font-anton text-primary mb-1.5">
-                            20K+
+                            1
                         </h5>
-                        <p className="text-muted-foreground">Hours Worked</p>
+                        <p className="text-muted-foreground">Publication (TDEMAS 2023)</p>
                     </div>
                 </div>
             </div>

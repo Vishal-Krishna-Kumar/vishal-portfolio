@@ -55,6 +55,103 @@ export const MY_STACK = {
 
 export const PROJECTS: IProject[] = [
   {
+    title: 'chunkaudit: Auditing RAG Chunking',
+    slug: 'chunkaudit',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/chunkaudit',
+    liveUrl: 'https://www.vishalkrishna.dev/blog/chunking-cuts-the-answer',
+    year: 2026,
+
+    description: `
+        An open-source Python tool that audits RAG chunking strategies. For each strategy it reports
+        how often the text that answers a question is split across two chunks, and whether retrieval
+        still returns a chunk that contains the whole answer.<br/><br/>
+
+        Key facts:<br/>
+        <ul>
+          <li>Four chunkers (fixed, sentence, paragraph, recursive) that keep character spans, a BM25 retriever on an inverted index, and support for custom chunkers and retrievers.</li>
+          <li>Reports answer split rate, Recall@k, MRR and context size. Offline and deterministic: no API keys, and NumPy is the only dependency.</li>
+          <li>On SQuAD v1.1 (48 long documents, 10,570 questions), fixed 200-word chunks with no overlap split the answering sentence in 14.1% of questions. A 50-word overlap cut that to 1.1% and raised Recall@5 from 78.7% to 90.2%.</li>
+          <li>A <code>--show-splits</code> option lists the answers a strategy cut, with the cut position marked.</li>
+        </ul><br/>
+
+        The method, the full results and the caveats are in the
+        <a href="https://www.vishalkrishna.dev/blog/chunking-cuts-the-answer">write-up</a>.
+      `,
+    role: `
+      Author and maintainer
+      <ul>
+        <li>Designed the span-based audit and the metrics.</li>
+        <li>Tests, type checks and CI on Python 3.10 to 3.13.</li>
+      </ul>
+      `,
+
+    techStack: ['Python', 'NumPy', 'BM25', 'pytest', 'GitHub Actions'],
+
+    thumbnail: '/projects/thumbnail/chunkaudit-1.png',
+    longThumbnail: '/projects/long/chunkaudit-1.png',
+
+    images: [
+      {
+        src: '/projects/images/chunkaudit-1.1.png',
+        title: 'Nine strategies on SQuAD v1.1',
+        description:
+          'Real output of the audit on 10,570 questions. Fixed 100-word chunks split 29.0% of answers; sentence-aware and paragraph-aware strategies split none.',
+      },
+      {
+        src: '/projects/images/chunkaudit-1.2.png',
+        title: 'The bundled demo',
+        description:
+          'Output of "chunkaudit demo" on the sample dataset of 5 articles and 20 questions that ships with the package.',
+      },
+    ],
+  },
+
+  {
+    title: 'ragbench: Retrieval Benchmarking for RAG',
+    slug: 'ragbench',
+    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/ragbench',
+    liveUrl: 'https://www.vishalkrishna.dev/blog/inverted-index-in-numpy',
+    year: 2026,
+
+    description: `
+        An open-source retrieval benchmark for RAG. BM25, TF-IDF and hybrid Reciprocal Rank Fusion
+        implemented from scratch with NumPy, scored with standard IR metrics and latency.<br/><br/>
+
+        Key facts:<br/>
+        <ul>
+          <li>Metrics: Recall@k, Precision@k, Hit@k, MRR and graded nDCG@k, with mean and p95 latency per query.</li>
+          <li>Measured on BEIR SciFact (5,183 documents, 300 queries): nDCG@10 of 0.647 for BM25, 0.612 for TF-IDF and 0.635 for the hybrid.</li>
+          <li>Moving both retrievers to an inverted index took TF-IDF query latency from 216 ms to 0.22 ms and peak indexing memory from 4.1 GB to 123 MB, with identical top-10 results for all 300 queries.</li>
+          <li>CLI with table, Markdown, JSON and CSV output, a FastAPI service and a Docker image.</li>
+        </ul><br/>
+
+        The before and after numbers are explained in the
+        <a href="https://www.vishalkrishna.dev/blog/inverted-index-in-numpy">write-up</a>.
+      `,
+    role: `
+      Author and maintainer
+      <ul>
+        <li>Retrievers, metrics, CLI and API service.</li>
+        <li>CI with lint, type checks, tests on Python 3.10 to 3.13, a package build and a container smoke test.</li>
+      </ul>
+      `,
+
+    techStack: ['Python', 'NumPy', 'FastAPI', 'Docker', 'GitHub Actions'],
+
+    thumbnail: '/projects/thumbnail/ragbench-1.png',
+    longThumbnail: '/projects/long/ragbench-1.png',
+
+    images: [
+      {
+        src: '/projects/images/ragbench-1.1.png',
+        title: 'BM25, TF-IDF and hybrid on BEIR SciFact',
+        description:
+          'Real output of the benchmark on 5,183 documents and 300 queries. Latency varies by machine and run; the quality metrics do not.',
+      },
+    ],
+  },
+
+  {
     title: 'Graph-Augmented Intelligence',
     slug: 'GAI',
     sourceCode: 'https://github.com/Vishal-Krishna-Kumar/GraphAugmented-Intelligence_GAI',

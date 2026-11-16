@@ -1,5 +1,8 @@
 import type { ComponentType } from 'react';
 
+import RetrieverPost, {
+    meta as retrieverMeta,
+} from './_posts/chunk-size-depends-on-retriever';
 import ChunkingPost, {
     meta as chunkingMeta,
 } from './_posts/chunking-cuts-the-answer';
@@ -23,6 +26,7 @@ export interface IPost extends IPostMeta {
 
 // Newest first.
 export const POSTS: IPost[] = [
+    { ...retrieverMeta, Content: RetrieverPost },
     { ...chunkingMeta, Content: ChunkingPost },
     { ...invertedIndexMeta, Content: InvertedIndexPost },
 ];

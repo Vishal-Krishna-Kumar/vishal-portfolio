@@ -756,7 +756,7 @@ Personal Project – Combat -Style 3D Raycasting FPS
         src: '/projects/images/combat-1.2.png',
         title: 'Enemy Navigation',
         description:
-          'A* pathfinding on a grid map to pursue the player and avoid obstacles.',
+          'Breadth-first search on the map grid to pursue the player around walls.',
       },
       {
         src: '/projects/images/combat-1.3.png',

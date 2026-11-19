@@ -327,7 +327,6 @@ export const PROJECTS: IProject[] = [
   {
     title: 'Deepfake Detection System',
     slug: 'deepfake-detection',
-    sourceCode: 'https://github.com/Vishal-Krishna-Kumar/DeepFake-Detection-System',
     year: 2023,
 
      description: `

@@ -155,7 +155,7 @@ export const PROJECTS: IProject[] = [
     title: 'Graph-Augmented Intelligence',
     slug: 'GAI',
     sourceCode: 'https://github.com/Vishal-Krishna-Kumar/GraphAugmented-Intelligence_GAI',
-    year: 2025,
+    year: 2026,
 
      description: `
         Knowledge-graph retrieval-augmented generation (KG-RAG) for biomedical question answering.
@@ -402,30 +402,28 @@ role: `
     year: 2024,
 
      description: `AlphaZero-style game agent: self-play reinforcement learning with Monte Carlo Tree Search (MCTS) guided by a
-        policy-value network, in PyTorch with CUDA. Extended
-        <a href="https://github.com/foersterrobert/AlphaZeroFromScratch" target="_blank" rel="noopener noreferrer">Robert Förster's AlphaZero tutorial</a>.
-        Reached an 81% win rate vs rule-based opponents.
+        policy-value network, in PyTorch. I worked through
+        <a href="https://github.com/foersterrobert/AlphaZeroFromScratch" target="_blank" rel="noopener noreferrer">Robert Förster's AlphaZero tutorial</a>
+        to learn the method; the implementation is his.
 <br/><br/>
 
         Key Facts:<br/>
         <ul>
             <li>🌲 Monte Carlo Tree Search guided by a policy-value network.</li>
-            <li>⚙️ PyTorch and CUDA.</li>
-            <li>🏁 81% win rate vs rule-based opponents.</li>
+            <li>⚙️ PyTorch.</li>
         </ul><br/>
 
-        Credit: the base implementation comes from Robert Förster's AlphaZero tutorial.
+        Credit: the implementation is Robert Förster's, from his AlphaZero tutorial.
 
 `,
 role: `
-Personal project — extended Robert Förster's AlphaZero tutorial <br/>
+Learning project — worked through Robert Förster's AlphaZero tutorial <br/>
 <ul>
-  <li>🌲 Worked with MCTS and a policy-value network in PyTorch (CUDA).</li>
-  <li>🏁 Reached an 81% win rate vs rule-based opponents.</li>
+  <li>🌲 Studied MCTS and a policy-value network in PyTorch by following the tutorial step by step.</li>
 </ul>
       `,
 
-    techStack: ['PyTorch', 'CUDA', 'Monte Carlo Tree Search', 'Policy-value network'],
+    techStack: ['PyTorch', 'Monte Carlo Tree Search', 'Policy-value network'],
 
     thumbnail: '/projects/thumbnail/alphazero-1.jpg',
     longThumbnail: '/projects/long/alphazero-1.jpg',
@@ -589,8 +587,8 @@ Project — POS tagging and spelling correction <br/>
     liveUrl: 'https://3d-gamingsite.netlify.app/',
     year: 2025,
 
-    description: `Immersive 3D web experience with real-time rendering, physics simulations, and interactive animations. 
-        Built with modern web technologies achieving 90 FPS on mid-range devices and <1.5s load time.
+    description: `A scroll-driven site in React and GSAP, built by following JavaScript Mastery's tutorial. 
+        The design it reproduces is Zentry's.
          <br/><br/>
 
         Key Features:<br/>
@@ -612,28 +610,26 @@ Project — POS tagging and spelling correction <br/>
 
         Technical Highlights:<br/>
         <ul>
-            <li>Developed with React.js + Tailwind CSS + GSAP (ScrollTrigger) for smooth, high-FPS interactions</li>
+            <li>Developed with React.js + Tailwind CSS + GSAP (ScrollTrigger) for scroll-driven animation</li>
             <li>Implemented clean folder structure and reusable UI primitives to keep the codebase maintainable</li>
             <li>Optimized media rendering and transitions for better perceived performance and smooth playback</li>
-            <li>SEO Score 95/100 Cumulative Layout Shift 0.05 and Time to interactive is 1.2 sec</li>
         </ul>
 
 `,
 role: `
 Frontend Developer & UI Engineer <br/>
-Personal Project – Award-Winning Website Recreation
+Tutorial project – recreation of Zentry's site
 <ul>
-  <li>🎮 Independently recreated a visually rich, award-winning 3D gaming website inspired by Zentry.</li>
+  <li>🎮 Rebuilt Zentry's gaming site by following JavaScript Mastery's tutorial; the design is Zentry's.</li>
   <li>🧩 Designed and implemented complex scroll-based animations and geometric transitions using GSAP.</li>
   <li>🕹️ Built interactive 3D hover effects and motion-driven UI components with React and CSS transforms.</li>
   <li>🎥 Integrated video transitions and storytelling elements for an immersive user experience.</li>
   <li>📐 Architected a reusable, component-driven frontend using React and Tailwind CSS.</li>
-  <li>📱 SEO Score 95/100 Cumulative Layout Shift 0.05 and Time to interactive is 1.2 sec .</li>
 </ul>
 `
 ,
 
-    techStack: ['React', 'Three.js', 'GSAP', 'WebGL', 'Vite', 'TypeScript', 'Tailwind CSS'],
+    techStack: ['React', 'GSAP', 'Vite', 'Tailwind CSS'],
 
     thumbnail: '/projects/thumbnail/3dgamingsite-1.webp',
     longThumbnail: '/projects/long/3dgamingsite-1.webp',
@@ -700,7 +696,7 @@ Personal Project – Award-Winning Website Recreation
     liveUrl: 'https://vishalkrishna.itch.io/combat',
     year: 2024,
 
-     description: `A high-performance Combat-style first-person shooter built with Python and Pygame, featuring AI-controlled enemies using shortest-path algorithms, intelligent spawn balancing, and real-time 
+     description: `A DOOM-style first-person shooter in Python and Pygame. The engine follows Stanislav Petrov's open-source ray-casting game; enemies find the player with breadth-first search on the map grid, with spawn balancing and real-time 
         ray-casting for immersive 3D gameplay.
          <br/><br/>
 
@@ -717,14 +713,14 @@ Personal Project – Award-Winning Website Recreation
         <ul>
             <li>Raycasting Engine Core: Casts rays per frame to calculate wall intersections and depth-correct rendering.</li>
             <li>Game Loop & Systems Layer: Central loop handling input, physics, AI updates, rendering, and combat logic.</li>
-            <li>Enemy AI Module: Grid-based A* pathfinding for intelligent navigation and player pursuit.</li>
+            <li>Enemy AI Module: breadth-first search on the map grid for navigation and player pursuit.</li>
             <li>Resource Pipeline: Organized textures, sprites, sounds, and maps for efficient loading and reuse.</li>
         </ul><br/>
 
         Technical Highlights:<br/>
         <ul>
             <li>Developed entirely in Python using Pygame for real-time rendering and input handling.</li>
-            <li>Implemented A* pathfinding for enemy navigation and obstacle avoidance.</li>
+            <li>Enemies use breadth-first search for navigation around walls.</li>
             <li>Optimized ray-casting and update loops for consistent frame rates.</li>
             <li>Packaged a standalone Windows executable using PyInstaller.</li>
         </ul>
@@ -734,9 +730,9 @@ role: `
 Game Developer & AI Engineer <br/>
 Personal Project – Combat -Style 3D Raycasting FPS
 <ul>
-  <li>🎮 Independently developed a high-performance Wolfenstein-inspired 3D FPS using Python and Pygame.</li>
-  <li>🧠 Designed and implemented a real-time ray-casting engine to simulate immersive 3D environments.</li>
-  <li>🤖 Built AI-driven enemies using shortest-path navigation (A* pathfinding) for intelligent player pursuit.</li>
+  <li>🎮 Built a Wolfenstein-style ray-casting shooter in Python and Pygame, following Stanislav Petrov's open-source engine.</li>
+  <li>🧠 Worked through the real-time ray-casting renderer that draws the 3D view.</li>
+  <li>🤖 Built AI-driven enemies using shortest-path navigation (breadth-first search) to pursue the player.</li>
   <li>🔫 Implemented core FPS mechanics including mouse-based aiming, WASD movement, shooting, health, and pickups.</li>
   <li>⚖️ Engineered dynamic spawn balancing to maintain fair difficulty and stable performance.</li>
 </ul>
@@ -744,7 +740,7 @@ Personal Project – Combat -Style 3D Raycasting FPS
 
 ,
 
-    techStack: ['Python', 'Pygame', 'Ray Casting', 'A* Pathfinding', 'OOP', 'Vector Math', 'AI Behavior Trees'],
+    techStack: ['Python', 'Pygame', 'Ray Casting', 'Breadth-first search', 'OOP'],
 
     thumbnail: '/projects/thumbnail/combat-1.png',
     longThumbnail: '/projects/long/combat-1.png',
@@ -786,7 +782,7 @@ export const MY_EXPERIENCE = [
     company: 'Hirello.ai — Remote',
     duration: 'July 2026 – September 2026',
     description:
-      'Built a resume-grounded RAG application-autofill feature for job-portal forms. Contributed code to 5 of the platform\'s 10 agents (Resume Optimizer, LinkedIn Labs, Outreach, Action Academy, Chat with Hiro). Fixed 3 Resume Optimizer defects, repaired Gmail, Outlook and Yahoo OAuth connection problems, fixed an IDOR access-control vulnerability with regression tests, and added cross-browser end-to-end tests covering 3 browsers. Worked in a 7-person product and engineering team across 10 one-week sprints. Stack: Python, FastAPI, SQLAlchemy, MySQL, JavaScript, Vue 3, Vertex AI/Gemini, Pinecone.',
+      'Built a resume-grounded RAG application-autofill feature for job-portal forms. Contributed code to 5 of the platform\'s 10 agents (Resume Optimizer, LinkedIn Labs, Outreach, Action Academy, Chat with Hiro). Fixed 3 Resume Optimizer defects, repaired Gmail, Outlook and Yahoo OAuth connection problems, fixed an IDOR access-control vulnerability with regression tests, and added cross-browser end-to-end tests covering 3 browsers. Worked in a 7-person product and engineering team across 10 one-week sprints. Stack: Python, FastAPI, SQLAlchemy, MySQL, JavaScript, Vue 3, Vertex AI/Gemini, Pinecone. The team grew its test suite from 65 to 1,146 passing tests in four sprints.',
     thumbnail: '/projects/thumbnail/hirello-1.png',
     longThumbnail: '/projects/long/hirello-1.png',
   },
@@ -798,6 +794,13 @@ export const MY_EXPERIENCE = [
       'Developed a modular RAG pipeline using dense and sparse retrieval, structured chunking and graph reasoning, reducing LLM hallucinations by 30%. Built reproducible experiment workflows, reducing debugging and rerun time by 40%. Worked with PyTorch computer-vision and NLP models.',
     thumbnail: '/projects/thumbnail/rag-1.jpg',
     longThumbnail: '/projects/long/rag-1.jpg',
+  },
+  {
+    title: 'Student Worker — School of Technology and Computing',
+    company: 'City University of Seattle',
+    duration: 'August 2025 – Present',
+    description:
+      'Set up AWS lab environments and grade assignments for graduate data science and AI cloud computing courses.',
   },
   {
     title: 'Graduate Teaching Assistant (part-time) — Computer Networks',

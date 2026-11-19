@@ -74,7 +74,7 @@ const AboutMe = () => {
                         <div className="text-lg text-muted-foreground max-w-[450px]">
                             <p className="slide-up-and-fade">
                                 I&apos;m pursuing an MS in Computer Science (Data Science concentration) at City University of Seattle
-                                (Expected 2027), where I&apos;m a Dean&apos;s Scholar and a graduate researcher. I hold a B.Tech in
+                                (expected June 2027, GPA 3.9/4.0), where I&apos;m a Dean&apos;s Scholar and a graduate researcher. I hold a B.Tech in
                                 Computer Science and Engineering from SRM Institute of Science and Technology.
                                 I enjoy translating complex problems into practical, well-designed technical solutions with real-world impact.
                             </p>
@@ -83,7 +83,7 @@ const AboutMe = () => {
                                Retrieval-Augmented Generation (RAG), and
                                data-driven system design.
                                I recently completed an AI Engineer internship at Hirello.ai (July – September 2026),
-                               and I&apos;m looking for full-time software engineering roles starting in 2027.
+                               and I&apos;m looking for full-time software and machine learning engineering roles from July 2027.
                            </p>
                         </div>
                     </div>
